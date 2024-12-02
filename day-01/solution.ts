@@ -1,18 +1,14 @@
 import * as fs from 'fs';
 
-
-
-const filePath = process.argv[2];
+const filePath = "./input";
 if (!filePath) {
-    console.error('Geef een bestandspad op als argument.');
+    console.error('Input file not found.');
     process.exit(1);
 }
 
 const lines = fs.readFileSync(filePath, 'utf-8')
             .split('\n')
             .filter(line => line.length > 0);
-            
-
 
 const leftList = lines.map(line => parseInt(line.substring(0,5))).sort();
 const rightList =lines.map(line => parseInt(line.substring(8,13))).sort();
